@@ -90,12 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     print("Init Called");
-    initializeQuickbooks();
+    initializeSquare();
   }
   ///
-  /// Initialize Quickbooks Client
+  /// Initialize Square Client
   ///
-  Future<void> initializeQuickbooks() async {
+  Future<void> initializeSquare() async {
     squareClient = SquareClient(
         applicationId: applicationId,
         clientId: clientId,
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Future<void> printQuickbooksReport() async {
+  Future<void> printSquareReport() async {
 
     //////////////////////////////////////////////////
     /// Request the Storage permissions required by
@@ -346,7 +346,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ): (receiptPreview != null ? Image.memory(receiptPreview!.buffer.asUint8List()) :Container(child: Text("Authenticated with Square"),))
       ),
       floatingActionButton: token != null ? FloatingActionButton(
-        onPressed: (){printQuickbooksReport();},
+        onPressed: (){printSquareReport();},
         tooltip: 'Print',
         child: const Icon(Icons.print),
       ): null, // This trailing comma makes auto-formatting nicer for build methods.
